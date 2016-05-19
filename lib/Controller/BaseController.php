@@ -40,7 +40,8 @@ class BaseController
 	
 	final protected function get_called_class()
 	{
-		return array_pop(explode("\\", get_class($this)));
+		$dummy = explode("\\", get_class($this));
+		return array_pop($dummy);
 	}
 	
 	public function get_cookie()
@@ -97,7 +98,8 @@ class BaseController
 		
 		if($view_file == null || empty($view_file))
 		{
-			$_caller = next(debug_backtrace());
+			$dummy = debug_backtrace();
+			$_caller = next($dummy);
 			$view_file = $_caller['function'];
 		}
 

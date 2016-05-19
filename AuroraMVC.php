@@ -14,7 +14,6 @@ require __DIR__.'/lib/MetaTag.php';
 require __DIR__.'/lib/RouteTable.php';
 require __DIR__.'/lib/Bootstrap.php';
 require __DIR__.'/lib/Controller/Exceptions.php';
-require __DIR__.'/lib/Controller/Scaffolding.php';
 require __DIR__.'/lib/Controller/BaseController.php';
 require __DIR__.'/lib/View/Helper.php';
 
