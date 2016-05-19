@@ -1,0 +1,24 @@
+{
+    "name": "h2atecnologia/aurora-mvc",
+    "type": "library",
+    "description": "AuroraMVC - is an open source MVC based framework",
+    "keywords": ["MVC", "Aurora"],
+    "homepage": "http://www.h2a.com.br/aurora/",
+    "license": "MIT",
+    "authors": [
+    	{
+    		"name": "Luiz Henrique Dias de Souza",
+    		"email": "henrique@h2a.com.br",
+    		"role": "Developer"
+    	}
+    ],
+    "require": {
+        "php": ">=7.0.0"
+    },
+    "require-dev": {
+
+    },
+    "autoload": {
+        "files": [ "AuroraMVC.php" ]
+    }
+}
