@@ -18,7 +18,7 @@ require __DIR__.'/lib/Controller/BaseController.php';
 require __DIR__.'/lib/View/Helper.php';
 
 /*if (!defined('AURORAMVC_AUTOLOAD_DISABLE'))
-	spl_autoload_register('mvc_autoload',false,AURORAMVC_AUTOLOAD_PREPEND);
+	spl_autoload_register('mvc_autoload',false, AURORAMVC_AUTOLOAD_PREPEND);
 
 function mvc_autoload($class_name)
 {
