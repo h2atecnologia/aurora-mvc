@@ -15,20 +15,11 @@ class Bootstrap
 
 	public function __construct( $root = null, $route_table = null, $controller_dir = null, $view_dir = null )
 	{
-		if(!defined("__APP_RUNNING_MODE__"))
-			define("__APP_RUNNING_MODE__", 1);
-
 		if($root == null || gettype($root) != "string")
-			if(__APP_RUNNING_MODE__ == 1)
-				throw new MVCBootstrapException("Root value is a mandatory parameter.");
-			else
-				die("Error# Root value is a mandatory parameter.");
+			throw new MVCBootstrapException("Root value is a mandatory parameter.");
 
 		if($route_table == null || gettype($route_table) != "object")
-			if(__APP_RUNNING_MODE__ == 1)
-				throw new MVCBootstrapException("RouteTable instance is a mandatory parameter.");
-			else
-				die("Error# RouteTable instance is a mandatory parameter.");
+			throw new MVCBootstrapException("RouteTable instance is a mandatory parameter.");
 
 		$this->root_path = $root;
 		
@@ -82,10 +73,7 @@ class Bootstrap
 		$_route = $this->route_table->match_route($_qs);
 		
 		if($_route == null)	// nenhum route foi encontrado
-			if(__APP_RUNNING_MODE__ == 1)
-				throw new MVCBootstrapException("RouteTable cannot discover a route.");
-			else
-				die("Error# RouteTable cannot discover a route.");
+			throw new MVCBootstrapException("RouteTable cannot discover a route.");
 
 		//------  route values
 		$_values = $this->route_table->strip_values( $_route["values"] );
@@ -106,20 +94,14 @@ class Bootstrap
 
 		if(!file_exists($this->controller_directory . strtolower($_route["values"]["controller"]) . ".php"))
 		{
-			if(__APP_RUNNING_MODE__ == 1)
-				throw new MVCBootstrapException("Controller file: " . strtolower($_route["values"]["controller"]) . " not found.");
-			else
-				die("Error# Controller file: " . strtolower($_route["values"]["controller"]) . " not found.");
+			throw new MVCBootstrapException("Controller file: " . strtolower($_route["values"]["controller"]) . " not found.");
 		} else {
 			require_once( $this->controller_directory . strtolower($_route["values"]["controller"]) . ".php" );
 		}
 
 		//------  action
 		if(!class_exists($_controller))
-			if(__APP_RUNNING_MODE__ == 1)
-				throw new MVCBootstrapException("Controller instance: " . $_route["values"]["controller"] . " not found.");
-			else
-				die("Error# Controller instance: " . $_route["values"]["controller"] . " not found.");
+			throw new MVCBootstrapException("Controller instance: " . $_route["values"]["controller"] . " not found.");
 
 		$_instance = new $_controller( $view_dir , $this->meta_tag, $this->view_bag, $this->default_cookie_name );
 
@@ -127,10 +109,7 @@ class Bootstrap
 		{
 			call_user_func_array(array($_instance, $_route["values"]["action"]), $_values);
 		} else {
-			if(__APP_RUNNING_MODE__ == 1)
-				throw new MVCBootstrapException("Action method: " . $_route["values"]["action"] . " not found.");
-			else
-				die("Error# Action method: " . $_route["values"]["action"] . " not found.");
+			throw new MVCBootstrapException("Action method: " . $_route["values"]["action"] . " not found.");
 		}
 
 	}

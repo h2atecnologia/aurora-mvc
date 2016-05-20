@@ -8,8 +8,7 @@ class ViewBag
 	
 	public function __construct()
 	{
-		if(!defined("__APP_RUNNING_MODE__"))
-			define("__APP_RUNNING_MODE__", 1);
+		//
 	}
 
 	public function __set($key, $value)
@@ -22,10 +21,7 @@ class ViewBag
 		if (array_key_exists($key, $this->_data))
 			return $this->_data[$key];
 
-		if(__APP_RUNNING_MODE__ == 1)
-			throw new MVCCollectionException("ViewBag key: $key not found.");
-		else
-			die("Error# ViewBag key: $key not found.");
+		throw new MVCCollectionException("ViewBag key: $key not found.");
 	}
 }
 

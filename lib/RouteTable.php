@@ -8,9 +8,6 @@ class RouteTable
 
 	public function __construct()
 	{
-		if(!defined("__APP_RUNNING_MODE__"))
-			define("__APP_RUNNING_MODE__", 1);
-
 		$this->_routes["default"] = 
 			array(
 				"template" => "{controller}/{action}/{id}",
@@ -45,10 +42,7 @@ class RouteTable
 	{
 		if(preg_match("/^default$/i", trim($name)))
 		{
-			if(__APP_RUNNING_MODE__ == 1)
-				throw new MVCRouteTableException("The default route already exists. Use set_default() method to change its value.");
-			else
-				die("Error# The default route already exists. Use set_default() method to change its value.");
+			throw new MVCRouteTableException("The default route already exists. Use set_default() method to change its value.");
 		} else {
 			$this->_routes[strtolower($name)] = $this->_defaults($route);
 		}
@@ -57,10 +51,7 @@ class RouteTable
 	public function remove_route($name)
 	{
 		if(preg_match("/^default$/i", trim($name)))
-			if(__APP_RUNNING_MODE__ == 1)
-				throw new MVCRouteTableException("The default route cannot be removed.");
-			else
-				die("Error# The default route cannot be removed.");
+			throw new MVCRouteTableException("The default route cannot be removed.");
 			
 		unset($this->_routes[strtolower($name)]);
 	}

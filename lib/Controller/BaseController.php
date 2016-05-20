@@ -13,9 +13,6 @@ class BaseController
 	
 	public function __construct( $view_dir, $meta_tag, $view_bag, $cookie_name )
 	{
-		if(!defined("__APP_RUNNING_MODE__"))
-			define("__APP_RUNNING_MODE__", 1);
-
 		$this->default_cookie_name = $cookie_name;
 		$this->view_directory =  $view_dir;
 
@@ -68,10 +65,7 @@ class BaseController
 	{
 		if(!file_exists($this->get_view_directory() . strtolower($this->get_called_class() . "/" . $view_file) . ".php"))
 		{
-			if(__APP_RUNNING_MODE__ == 1)
-				throw new MVCControllerException("View file: $view_file not found.");
-			else
-				die("Error# View file: $view_file not found.");
+			throw new MVCControllerException("View file: $view_file not found.");
 		} else {
 			require_once( $this->get_view_directory() . strtolower($this->get_called_class() . "/" . $view_file) . ".php" );
 		}
@@ -81,10 +75,7 @@ class BaseController
 	{
 		if(!file_exists($this->get_view_directory() . "shared/" . strtolower($view_file) . ".php"))
 		{
-			if(__APP_RUNNING_MODE__ == 1)
-				throw new MVCControllerException("View shared file: $view_file not found.");
-			else
-				die("Error# View shared file: $view_file not found.");
+			throw new MVCControllerException("View shared file: $view_file not found.");
 		} else {	
 			require_once( $this->get_view_directory() . "shared/" . strtolower($view_file) . ".php" );
 		}
@@ -105,10 +96,7 @@ class BaseController
 
 		if(!file_exists($view_path . strtolower($view_file) . ".php"))
 		{
-			if(__APP_RUNNING_MODE__ == 1)
-				throw new MVCControllerException("View file: $view_file not found.");
-			else
-				die("Error# View file: $view_file not found.");
+			throw new MVCControllerException("View file: $view_file not found.");
 		} else {
 			require_once($view_path . strtolower($view_file) . ".php");
 		}
