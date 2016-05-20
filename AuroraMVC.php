@@ -1,13 +1,14 @@
 <?php
-if (!defined('PHP_VERSION_ID') || PHP_VERSION_ID < 70000)
-	die('AuroraMVC requires PHP 7.0 or higher');
+//if (!defined('PHP_VERSION_ID') || PHP_VERSION_ID < 70000)
+//	die('AuroraMVC requires PHP 7.0 or higher');
+if (!defined('PHP_VERSION_ID') || PHP_VERSION_ID < 50534)
+	die('AuroraMVC requires PHP 5.5.34 or higher');
 
 define('AURORAMVC_VERSION_ID','1.0');
 
 if (!defined('AURORAMVC_AUTOLOAD_PREPEND'))
 	define('AURORAMVC_AUTOLOAD_PREPEND',true);
 
-require __DIR__.'/lib/HTTP.php';
 require __DIR__.'/lib/Exceptions.php';
 require __DIR__.'/lib/ViewBag.php';
 require __DIR__.'/lib/MetaTag.php';
