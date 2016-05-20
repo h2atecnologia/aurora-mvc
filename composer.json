@@ -19,11 +19,10 @@
     	}
     ],
     "require": {
-        "php": ">=5.5.34",
-		"h2atecnologia/web-helpers": "dev-master"
+        "php": ">=5.5.34"
     },
     "require-dev": {
-
+		"h2atecnologia/web-helpers": "dev-master"
     },
     "autoload": {
         "files": [ "AuroraMVC.php" ]
