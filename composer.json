@@ -12,17 +12,12 @@
     		"role": "Developer"
     	}
     ],
-    "repositories": [
-    	{
-    		"type": "git",
-    		"url": "https://github.com/h2atecnologia/web-helpers"
-    	}
-    ],
     "require": {
-        "php": ">=5.5.34"
+        "php": ">=5.5.34",
+		"h2atecnologia/web-helpers": "dev-master"
     },
     "require-dev": {
-		"h2atecnologia/web-helpers": "dev-master"
+
     },
     "autoload": {
         "files": [ "AuroraMVC.php" ]
