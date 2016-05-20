@@ -15,8 +15,7 @@
     "repositories": [
     	{
     		"type": "git",
-    		"url": "https://github.com/h2atecnologia",
-    		"vendor-alias": "h2atecnologia"
+    		"url": "https://github.com/h2atecnologia/web-helpers"
     	}
     ],
     "require": {
