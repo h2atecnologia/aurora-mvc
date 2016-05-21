@@ -25,7 +25,8 @@ if (!defined('AURORAMVC_AUTOLOAD_DISABLE'))
 
 function mvc_autoload($class_name)
 {
-trigger_error($class_name, E_USER_NOTICE);
+	//trigger_error("Class auto loaded: $class_name", E_USER_NOTICE);
+
 	$path = MVC\Config::instance()->get_plugin_path();
 	$root = realpath(isset($path) ? $path : '.');
 
