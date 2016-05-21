@@ -54,11 +54,13 @@ class BaseController
 
 	public function url_context( $url, $suppress_protocol = false )
 	{
+		$_app_url = \MVC\Config::instance()->get_app_url();
+		
 		if( strpos($url, "~/") === false )
 			return $url;
 		if($suppress_protocol)
-			return substr_replace($url, str_ireplace(array("http:", "https:"), "", __APP_URL__) , 0, 2);
-		return substr_replace($url, __APP_URL__, 0, 2);
+			return substr_replace($url, str_ireplace(array("http:", "https:"), "", $_app_url) , 0, 2);
+		return substr_replace($url, $_app_url, 0, 2);
 	}
 	
 	public function include_view( $view_file )
