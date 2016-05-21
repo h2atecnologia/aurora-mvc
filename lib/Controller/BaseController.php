@@ -63,6 +63,15 @@ class BaseController
 		return substr_replace($url, $_app_url, 0, 2);
 	}
 	
+	public function path_context( $path )
+	{
+		$_app_path = \MVC\Config::instance()->get_app_path();
+		
+		if( strpos($path, "~/") === false )
+			return $path;
+		return substr_replace($path, $_app_path, 0, 2);
+	}
+	
 	public function include_view( $view_file )
 	{
 		if(!file_exists($this->get_view_directory() . strtolower($this->get_called_class() . "/" . $view_file) . ".php"))

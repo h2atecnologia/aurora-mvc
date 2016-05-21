@@ -41,6 +41,8 @@ class Config extends Singleton
 	private $plugin_path;
 
 	private $app_url;
+	
+	private $app_path;
 
 	public static function initialize(Closure $initializer)
 	{
@@ -63,6 +65,11 @@ class Config extends Singleton
 		$this->app_url = $url;
 	}
 
+	public function set_app_path($path)
+	{
+		$this->app_path = $path;
+	}
+
 	/**
 	 * Returns the plugin path.
 	 *
@@ -80,6 +87,11 @@ class Config extends Singleton
 	public function get_app_url()
 	{
 		return $this->app_url;
+	}
+
+	public function get_app_path()
+	{
+		return $this->app_path;
 	}
 };
 ?>
